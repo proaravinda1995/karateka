@@ -1,0 +1,73 @@
+::-moz-selection {
+background:#e06d5e;
+}
+::selection {
+background:#e06d5e;
+}
+
+.navbar .brand a:hover {
+	color:rgb(218, 218, 218);
+}
+
+
+
+ul#menu-main > li > a:hover {
+	color: rgb(218, 218, 218);
+}
+
+
+ul#menu-main > li > a:focus,ul#menu-main > li > a:active, ul#menu-main > li > a.selected, ul#menu-main li a.selected:active    {
+	color: rgb(218, 218, 218);
+}
+#header-wrapper h1 span {
+	color:rgb(218, 218, 218);
+}
+
+#header-wrapper input[type=submit] {
+	background: #1BAC91 !important;
+}
+
+#theme-form input[type=submit] {
+	background: #1BAC91 !important;
+}
+
+.btn.btn-theme {
+	background: #26c8aa !important;
+}
+
+/* blog */
+.home-post .post-meta {
+	background: #1BAC91;
+}
+
+/* com */
+.tabbable ul.nav-tabs li.active a,.tabbable ul.nav-tabs li a:hover {
+	color: rgb(218, 218, 218);
+}
+.accordion .accordion-heading a.active {
+	color: rgb(218, 218, 218);
+}
+
+#tweet ul li a {
+	color: rgb(218, 218, 218);
+}
+
+
+/* works */
+#filters ul li a:hover h5, #filters ul li a.active h5 {
+	background: rgb(218, 218, 218);
+	border-color: rgb(218, 218, 218);
+}
+
+.portfolio .portfolio-overlay {
+	background: rgb(218, 218, 218);
+}
+
+/* icon */
+i.icon-bgdark:hover {
+	background: rgb(218, 218, 218);
+}
+
+i.icon-bgdark.active {
+	background: #e06d5e;
+}
