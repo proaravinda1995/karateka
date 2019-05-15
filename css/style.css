@@ -486,7 +486,7 @@ section.spacer {
 }
 
 .spacer.green,.section.green {
-	background: rgba(0, 0, 0, 0.7) ;
+	background: rgba(16, 47, 77, 0.7) ;
 }
 
 .spacer.green,.section.green h4 {
@@ -497,7 +497,7 @@ section.spacer {
 	background:#ffe873;
 }
 .spacer.orange,.section.orange {
-	background:#212121 ;
+	background:#7c1d1d ;
 }
 
 section.spacer.bg2 {
@@ -512,6 +512,13 @@ section.spacer.bg3 {
 	width:100%;
 	height:auto;
 	margin:0;	
+	
+}
+
+.back5{
+	background: #f5f5f5;
+
+	padding-bottom: 50px;
 }
 
 section.spacer blockquote.large:before {
@@ -1764,8 +1771,8 @@ i.icon-white {
 
 
 .article{
-	background-color: #e4e4e4;
-	height: 560px;
+	background-color: #ffffff;
+	height: 690px;
 
 }
 
@@ -1778,12 +1785,34 @@ i.icon-white {
 }
 
 .more1{
-	margin-left: 300px;
-	
+	margin: auto;
+	font-size: 50px;
+	font-family: 'Times New Roman', Times, serif;
+	color: #535353;
+	margin-top: 30px;
+	text-align: center;
+}
+
+.read{
+	margin-top: 30px;
+
+}
+
+.link2{
+	color: #636262;
 }
 
 
+.link2:hover{
+	color: #2b2b2b;
+}
 
+.articlepara{
+	font-style: oblique;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 25px;
+	color: #43413e;
+}
 
 
 
