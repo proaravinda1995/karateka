@@ -98,6 +98,24 @@
   border-radius: 5px;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+	padding: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+
+
+
+}
+
+.grid-container > div {
+	background-color:  rgba(240, 240, 240, 0.75);
+  text-align: center;
+  padding: 20px 0;
+	font-size: 30px;
+}
+
 </style>
 	
 	<!-- =======================================================
@@ -227,15 +245,62 @@
 				$result = $con->query($sql);
 					
 
-				echo '<div style="overflow-x:auto;padding-left:80px; padding-top:80px">'.'<table style="width:1200px;" cellpadding="15">'.'<tbody>'.'<tr style=" border-top: 12px solid transparent;
+			/*	echo '<div style="overflow-x:auto;padding-left:80px; padding-top:80px">'.'<table style="width:1200px;" cellpadding="15">'.'<tbody>'.'<tr style=" border-top: 12px solid transparent;
 				border-bottom: 12px solid transparent;">';
 		
 	$x = 0;
-
+*/		
+				echo '<div class="grid-container">';
 
 				while( $row = mysqli_fetch_array($result)){
+
+			echo '<section id="blog" class="section">'.
+					'<div>'.
+						
 					
-				if($x == 3){
+						'<div>'.
+							'<div class="span3">'.
+								'<div class="home-post">'.
+									'<div class="post-image">'.
+										'<img class="max-img"  src ="data:image/jpeg;base64,'.base64_encode($row['image']).'"/>'.
+								'</div>'.
+									'<div class="post-meta">'.
+										'<i class="icon-file icon-2x">'.'</i>'.
+										'<span class="date">'.$row['date'].'</span>'.
+									'</div>'.
+									'<div class="entry-content">'.
+										'<h5>'.'<strong>'.'<textarea rows="3" style=" border-style: none; resize: none;
+										border-color: Transparent; ">';echo $row['title']; echo '</textarea>'.'</strong>'.'</h5>'.
+										'<p>'.
+										$row['time'].
+										'</p>'.
+										'<p>'.
+										$row['venue'].
+										'</p>'.
+										'<button id="myBtn" class="button1">View More.. </button>'.
+									'</div>'.
+								'</div>'.
+							'<div>'.
+				
+						'</div>'.
+		
+					'</div>'.
+				'</section>'
+
+				.'<div id="myModal" class="modal responsive">'
+				
+					
+					.'<div class="modal-content">'
+						.'<span class="close">&times;</span>'
+						.'<p>'.$row['description'].'</p>'
+					.'</div>'
+				
+				.'</div>';
+				}
+
+				echo '</div>';
+					
+			/*	if($x == 3){
 					echo '<tr>'.'<td style="vertical-align: top;text-align: center;">';
 					$x=0;
 			}else{
@@ -266,12 +331,13 @@
 				.'</div>';
 	
 			}
-			echo '</tr>'.'</tbody>'.'</table>'.'</div>';
+			echo '</tr>'.'</tbody>'.'</table>'.'</div>';*/
 
 
 
 				$con->close();
 				?>
+
 </section>
 
 		

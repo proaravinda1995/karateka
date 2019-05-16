@@ -111,7 +111,7 @@
              
               Founder <br>
               Shehan De Silva <br>
-              BBA Business Economis (SP)(UOC)(Black belt 2nd dan )<br>
+              BBA Business Economis (SP)(UOC)<br>(Shitoriyu Shukokai Black belt 2nd dan )<br>
               (Instructor/ coach sri lanka karate do Federation & Sri Lanka school’s Karate Do Association)</p>
 
 
