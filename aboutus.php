@@ -57,7 +57,8 @@
  
     <main class="cd-main-content">
 		<div class="cd-fixed-bg cd-bg-1">
-			<p class="insight">丨几丂丨Ꮆ卄ㄒ<br><strong>Ҝ卂尺卂ㄒ乇</strong></p>
+			<p class="insight" data-aos="fade-up"
+     data-aos-duration="3000">丨几丂丨Ꮆ卄ㄒ<br><strong>Ҝ卂尺卂ㄒ乇</strong></p>
 		</div> <!-- cd-fixed-bg -->
 
  <section id="about">
@@ -66,7 +67,7 @@
           <div class="justify-content-center">
 						<img src="img/fin.png" id="optional" alt="" class="back">
 						
-            <h2 class="title1"><u>OUR STORY</u></h2>
+            <h2 class="title1" ><u>OUR STORY</u></h2>
               <p class="aboutpara">Insight  karate is simply the one-stop destination and digital integration of all Karate related activity in Sri Lanka !<br> <br>As a great advocate of the martial art, our main goal at insight karate is to promote Karate in Sri Lanka as a passage to building a healthy lifestyle by improving the following qualities and characteristics of students.
               <br>
             <div class="mid"><br>Self-confidence
