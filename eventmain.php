@@ -262,7 +262,9 @@
 							'<div class="span3">'.
 								'<div class="home-post">'.
 									'<div class="post-image">'.
-										'<img class="max-img"  src ="data:image/jpeg;base64,'.base64_encode($row['image']).'"/>'.
+										'<img class="max-img" width:100% style=" display: block;
+										margin-left: auto;
+										margin-right: auto;" src ="data:image/jpeg;base64,'.base64_encode($row['image']).'"/>'.
 								'</div>'.
 									'<div class="post-meta">'.
 										'<i class="icon-file icon-2x">'.'</i>'.
