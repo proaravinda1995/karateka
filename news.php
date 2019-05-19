@@ -27,8 +27,7 @@
     Author: BootstrapMade.com
     Author URL: https://bootstrapmade.com
     ======================================================= -->
- 
-
+	
 </head>
 
 <body>	
@@ -46,11 +45,11 @@
 			<nav class="pull-right nav-collapse collapse">
 				<ul id="menu-main" class="nav">
 						<li><a title="team" href="index.php">HOME</a></li>
-					<li><a title="team" href="#about">About us</a></li>
-					<li><a title="services" href="#services">EVENTS</a></li>
-					<li><a title="works" href="#works">KARATE NEWS</a></li>
-					<li><a title="blog" href="#blog">ARTICLES</a></li>
-					<li><a title="team" href="#about">clubs</a></li>
+					<li><a title="team" href="aboutus.php">About us</a></li>
+					<li><a title="services" href="eventmain.php">EVENTS</a></li>
+					<li><a title="works" href="#">KARATE NEWS</a></li>
+					<li><a title="blog" href="articles.php">ARTICLES</a></li>
+					<li><a title="team" href="clubs.php">clubs</a></li>
 					<li><a title="contact" href="#contact">Contact us</a></li>
 					
 				</ul>
@@ -80,9 +79,7 @@
 				</div>
 		</section>
 
-        <h1 class="para2" data-aos="fade-right"
-					data-aos-offset="300"
-					data-aos-easing="ease-in-sine" style="text-align:center; padding-top:80px;padding-bottom:80px;font-size:80px;">Lates Karate News...</h1>
+      
 	
 	
 
@@ -111,38 +108,38 @@
 
 
 
-    				echo
-                                '<div style="padding:3%;">'.
-							  '<div style = "-webkit-box-shadow: -1px 3px 34px -5px rgba(0,0,0,0.37);
-                              -moz-box-shadow: -1px 3px 34px -5px rgba(0,0,0,0.37);
-                              box-shadow: -1px 3px 34px -5px rgba(0,0,0,0.37); border-radius:25px;padding:50px;" >'.
-														//image setting
-                            '<div>'.'<img src ="data:image/jpeg;base64,'.base64_encode($row['image']).'" width ="250" height ="200" align = "left" style = "margin-left:20px;margin-right:20px;border:solid black 1px;margin-top:6px;border-radius: 10%;">'.'</div>'.
+	echo
+											'<div style="padding:1%; padding-top:100px;" data-aos="fade-right"
+											data-aos-offset="300"
+											data-aos-easing="ease-in-sine">'.
+			'<div style = " border-radius:18px;padding:50px; background-color: transparent;border: 1px solid #3F729B;" >'.
+									//image setting
+									'<div>'.'<figure>'.'<img src ="data:image/jpeg;base64,'.base64_encode($row['image']).'" width ="300" height ="150" align = "left" style = "margin-left:10px;margin-right:20px;border:solid black 1px;margin-top:6px;border-radius:8px;">'.'</figure>'.'</div>'.
 
 
-														//image topic
-                            '<div style ="font-size:50px;font-weight:bold; font-family:Arial,Helvetica,sans-serif;margin-top:8px;text-align:center">'.
-                            $row["topic"].'</br>'.
-                            '</div>'.
-														//date
-														'<div style ="font-size:20px;font-family:Arial Narrow">'.
-														'<i>'.$row["date"].'</br>'.'</i>'.
-														'</div>'.
+									//image topic
+									'<div style ="font-size:55px;font-weight:bold; font-family:Helvetica;margin-top:8px;text-align:center;color:#1C2331;">'.
+									$row["topic"].'</br>'.
+									'</div>'.
+									//date
+									'<div style ="font-size:22px;font-family:Arial Narrow;color:#4B515D">'.
+									'<i>'.$row["date"].'</br>'.'</i>'.
+									'</div>'.
 
-														//image description
-														'<div  style ="font-size:18px;font-weight:500;margin-top:15px;";>'.
-														'<i>'.$row["description"].'</br>'.'</i>'.
-														'</div>'.
-
-
-                            '<div style = "clear:left;">'.
-
-                            '</div>'.
+									//image description
+									'<div  style ="font-size:17px;font-weight:500;margin-top:15px;";>'.
+									'<i>'.$row["description"].'</br>'.'</i>'.
+									'</div>'.
 
 
-                            '</br>'.
-                          	'</br>'.
-                            '</br>'.
+									'<div style = "clear:left;">'.
+
+									'</div>'.
+
+
+									'</br>'.
+									'</br>'.
+									'</br>'.
 
 					  '</div>'.'</div>';
 
@@ -180,12 +177,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="span6 offset3">
-					<ul class="social-networks">
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-instagram icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-twitter icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-dribbble icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-pinterest icon-2x"></i></a></li>
+				<ul class="social-networks">
+						<li><a href="https://www.facebook.com/Insight-Karate-370294930277198/?ref=br_rs"><i class="icon-circled icon-bgdark icon-facebook icon-2x"></i></a></li>			
 					</ul>
+					
+					<p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  font-size: 15px">
+						&copy; Insight Karate,All rights reserved.
+					</p>
 					<div class="foot">
 					<p class="copyright">
 						&copy; Maxim Theme. All rights reserved.

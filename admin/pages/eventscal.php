@@ -154,6 +154,12 @@ if(isset($_POST['submit'])){
                             <li>
                                 <a href="articles.php"><i class="fa fa-edit fa-fw"></i> Articles</a>
                             </li>
+                            <li>
+                                <a href="clubs.php"><i class="fa fa-edit fa-fw"></i> clubs</a>
+                            </li>
+                            <li>
+                                <a href="reg.php"><i class="fa fa-table fa-fw"></i> Draw Chart Update</a>
+                            </li>
                             
                         </ul>
                     </div>

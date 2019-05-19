@@ -1,123 +1,4 @@
 
-<?php
-
-$titleValidationError = "";
-$dateValidationError = "";
-$timeValidationError ="";
-$placeValidationError = "";
-$descriptionValidationError = "";
-$photoValidationError = "";
-$message ="*Use jpg type and  upload image below 500kb";
-
-
-
-  $servername  = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "karateka";
-
-  $con = new mysqli($servername,$username,$password,$dbname);
-
-
-if(isset($_POST['submit'])){
-
-
-  if(!empty($_POST['title'])){
-    $titleValidationError = "";
-  }
-
-  else{
-    $titleValidationError = "Title is required";
-
-  }
-
-
-  if(!empty($_POST['date'])){
-    $dateValidationError = "";
-  }
-
-  else{
-    $dateValidationError = "Date is required";
-
-  }
-
-
-  if(!empty($_POST['time'])){
-    $timeValidationError = "";
-  }
-
-  else{
-    $timeValidationError = "Time is required";
-
-  }
-
-
-  if(!empty($_POST['place'])){
-    $placeValidationError = "";
-  }
-
-  else{
-    $placeValidationError = "Place is required";
-
-  }
-
-
-
-  if(!empty($_POST['description'])){
-    $descriptionValidationError = "";
-  }
-
-  else{
-    $descriptionValidationError = "description is required";
-
-  }
-
-
-
-  if(getimagesize($_FILES['photo']['tmp_name']) == FALSE){
-      echo "failed";
-  }
-
-  else{
-      $image = $_FILES['photo']['tmp_name'];
-      $imagecontent=addslashes(file_get_contents($image));
-  }
-
-
-
-
-
-  if( ($titleValidationError == $dateValidationError)    &&($dateValidationError == $timeValidationError)  &&($timeValidationError==$placeValidationError) && ($placeValidationError== $descriptionValidationError)&&($descriptionValidationError==="")){
-
-     $title= $_POST['title'];
-     $date=$_POST['date'];
-     $time=$_POST['time'];
-     $place=$_POST['place'];
-     $description=$_POST['description'];
-
-
-    $sql = "INSERT INTO addevent(title,date,time,venue,description,image) values('$title','$date','$time','$place','$description','$imagecontent')";
-    $con->query($sql);
-
-
-
-
-
-  }
-
-
-
-
-
-}
-
-
-
-?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -179,6 +60,7 @@ if(isset($_POST['submit'])){
                             <li>
                                 <a href="articles.php"><i class="fa fa-edit fa-fw"></i> Articles</a>
                             </li>
+
                             <li>
                                 <a href="clubs.php"><i class="fa fa-edit fa-fw"></i> clubs</a>
                             </li>
@@ -197,7 +79,7 @@ if(isset($_POST['submit'])){
 <div class="container-fluid">
 <div class="row">
 <div class="col-lg-12">
-    <h1 class="page-header">Events</h1>
+    <h1 class="page-header">Draw Charts</h1>
 </div>
 <!-- /.col-lg-12 -->
 </div>
@@ -212,56 +94,34 @@ if(isset($_POST['submit'])){
             <div class="row">
                 <div class="col-lg-6">
 
-                <?php echo "$message"; ?>
+
                 <form  method = post enctype="multipart/form-data" >
 
                         <div class="form-group">
-                            <label>Topic</label>
-                            <input type = "text" name = "title" class="form-control" placeholder="Enter Title here">
-                            <span class = "error_all"> <?php echo "$titleValidationError"; ?></span>
+                            <label>Upload File</label>
+                            <input type = "file" name = "f" class="form-control" placeholder="Upload file here">
+
                             <!--<textarea class="form-control" rows="3" cols="150"></textarea>-->
                             <!--<p class="help-block">Example block-level help text here.</p>-->
                         </div>
 
                         <div class="form-group">
-                            <label>Date</label>
-                            <input type = "text" name ="date" placeholder="Enter Date" class="form-control">
-                            <span class = "error_all"> <?php echo "$dateValidationError"; ?></span>
+                            <label>Name</label>
+                            <input type = "text" name ="t" placeholder="Name the draw" class="form-control">
+
                             <!--<input class="form-control" placeholder="Enter Date">-->
                         </div>
 
                         <div class="form-group">
-                        <label>time: </label>
-                        <input type = "text" name ="time" class="form-control" placeholder="Enter Time here">
-                        <span class = "error_all"><?php echo "$timeValidationError"; ?></span>
+                        <label>Date: </label>
+                        <input type = "text" name ="date" class="form-control" placeholder="Enter Date here">
+
                     </div>
 
 
-                        <div class="form-group">
-                    <label>Venue: </label>
-                    <input type = "text" name ="place" class="form-control" placeholder="Enter venue here">
-                    <span class = "error_all"> <?php echo "$placeValidationError"; ?></span>
-                    </div>
 
 
-                       <div class="form-group">
-                            <label>Description</label>
-                            <textarea  name ="description" placeholder="Enter description here" class="form-control" rows="8"></textarea>
-                            <span class = "error_all"> <?php echo "$descriptionValidationError"; ?></span>
-                        </div>
-
-  
-
-
-
-
-                        <div class="form-group">
-                            <label>Images</label>
-                            <input type = "file" name ="photo">
-                            <span class = "error_all">* <?php echo "$photoValidationError"; ?></span>
-                        </div>
-
-                        <input type = "submit" value = "Publish event" name = "submit">
+                        <input type = "submit" value = "Publish Draws" name = "submit">
                         <button type="reset" class="btn btn-default">Clear All</button>
 
                     </form>
@@ -278,29 +138,80 @@ if(isset($_POST['submit'])){
     </div>
     <!-- /.panel -->
 
+
+
     <?php
 
 
-    $sql = "select eventid,title,date,time,venue,description,image from addevent";
+    				$servername  = "localhost";
+    				$username = "root";
+    				$password = "";
+    				$dbname = "karateka";
+
+    				$con = new mysqli($servername,$username,$password,$dbname);
+
+    if(isset($_POST['submit'])){
+
+      $filename=$_POST['t'];
+      $date=$_POST['date'];
+
+      $fnm = $_FILES["f"]["name"];
+      $dst = "./images/".$fnm;
+      move_uploaded_file($_FILES["f"]["tmp_name"],$dst);
+
+      $query = "INSERT INTO demo(filename,date,name,path) values('$filename','$date','$fnm','$dst')";
+
+      $con->query($query);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    $sql = "select filename,date,id from demo";
     $result = $con->query($sql);
 
-    echo '<br/>'.'<h1>Event Delete</h1>'.'<hr>';
+    echo '<br/>'.'<h1>Draw Charts Delete</h1>'.'<hr>';
 
 
     while( $row = mysqli_fetch_array($result)){
 
-     $id= $row['eventid'];
+     $id= $row['id'];
 
 
-    echo '<div style="text-align: center;margin-top:5px;margin-left:15px;display: inline-block;word-wrap: break-word;  border-radius: 25px;
-  border: 2px solid #DCDCDC;width: 200px;height: 150px; border-colorrgb(220,220,220);">'.'<br/>'.'<div style= "padding: 10px; ">'.$row['title'].'</br>'.$row['date'].'</br>'.$row['time'].'</br>'.'</br>'.'<button  style = "background-color: #555555;border: none;width:90px;height:30px">'.'<a href = "deleteeventphp.php?id10='.$row['eventid'].'" style="color:white">delete </a>'.'</button>'.'</br>'.'</br>'.'</div>'.'</div>';
+    echo '<div style="text-align: center;margin-top:5px;margin-left:15px;display: inline-block; word-wrap: break-word;  border-radius: 25px;
+  border: 2px solid #DCDCDC;width: 200px;height: 150px; border-colorrgb(220,220,220);">'.'<br/>'.'<div style= "padding: 10px; ">'.$row['filename'].'</br>'.$row['date'].'</br>'.'<button  style = "background-color: #555555;border: none;width:90px;height:30px">'.'<a href = "deletedrawsphp.php?id10='.$row['id'].'" style="color:white">delete </a>'.'</button>'.'</br>'.'</br>'.'</div>'.'</div>';
 
     }
 
     $con->close();
 
+
      ?>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- delete event->
+
 <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->

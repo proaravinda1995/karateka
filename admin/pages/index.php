@@ -121,6 +121,12 @@ if(isset($_POST['submiti'])){
                             <li>
                                 <a href="articles.php"><i class="fa fa-edit fa-fw"></i> Articles</a>
                             </li>
+                            <li>
+                                <a href="clubs.php"><i class="fa fa-edit fa-fw"></i> clubs</a>
+                            </li>
+                            <li>
+                                <a href="reg.php"><i class="fa fa-table fa-fw"></i> Draw Chart Update</a>
+                            </li>
 
                         </ul>
                     </div>
@@ -192,7 +198,7 @@ while( $row = mysqli_fetch_array($result)){
  $id= $row['id'];
 
 
-echo '<div style="text-align: center;margin-top:5px;margin-left:15px;display: inline-block;  border-radius: 25px;
+echo '<div style="text-align: center;margin-top:5px;margin-left:15px;display: inline-block;word-wrap: break-word;  border-radius: 25px;
 border: 2px solid #DCDCDC;width: 200px;height: 150px; border-colorrgb(220,220,220);">'.'<br/>'.'<div style= "padding: 10px; ">'.$row['topic'].'</br>'.$row['date'].'</br>'.'<button  style = "background-color: #555555;border: none;width:90px;height:30px">'.'<a href = "deletenewsphp.php?id10='.$row['id'].'" style="color:white">delete </a>'.'</button>'.'</br>'.'</br>'.'</div>'.'</div>';
 
 }

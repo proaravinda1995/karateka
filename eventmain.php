@@ -26,77 +26,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <style>
-.responsive {
-  width: 100%;
-  max-width: 400px;
-  height: auto;;
-}
 
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 80px; /* Location of the box */
-	top: 0;		
-  width: 100%; /* Full width */
-  height: 410px; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-	background-color: rgba(0,0,0,0.1); /* Black w/ opacity */
-	border-radius: 25px;
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: #fafafa;
-	margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-	width: 350px;
-	height: 300px;
-	border-radius: 25px;
-  
-}
-
-/* The Close Button */
-.close {
-  color: #424242;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.button1{
-	border:0;
-  background-color:#333;
-  margin:20px auto;
-  text-align:center;
-  padding:10px;
-  outline:none;
-  color:rgb(255, 255, 255);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border-radius:24px;
-  transition:0.25s;
-  cursor:pointer;
-  width:100px;
-  padding: 1% 3%;
-  border: none;
-}
-
-.button1:hover{
-	color: rgb(70, 70, 70);
-  background-color: white;
-  border: 1px solid rgb(71, 71, 71);
-  border-radius: 5px;
-}
 
 .grid-container {
   display: grid;
@@ -139,17 +69,17 @@
 			<!-- Responsive navbar -->
 			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
 		</a>
-			<h1 class="brand"><a href="index.html">KARATEKA</a></h1>
+			<h1 class="brand"><a href="index.php">KARATEKA</a></h1>
 			<!-- navigation -->
 			<nav class="pull-right nav-collapse collapse">
 				<ul id="menu-main" class="nav">
 						<li><a title="team" href="index.php">HOME</a></li>
-					<li><a title="team" href="#about">About us</a></li>
-					<li><a title="services" href="#services">EVENTS</a></li>
-					<li><a title="works" href="#works">KARATE NEWS</a></li>
-					<li><a title="blog" href="#blog">ARTICLES</a></li>
-					<li><a title="team" href="#about">clubs</a></li>
-					<li><a title="contact" href="#contact">Contact us</a></li>
+					<li><a title="team" href="aboutus.php">About us</a></li>
+					<li><a title="services" href="#">EVENTS</a></li>
+					<li><a title="works" href="news.php">KARATE NEWS</a></li>
+					<li><a title="blog" href="articles.php">ARTICLES</a></li>
+					<li><a title="team" href="clubs.php">clubs</a></li>
+					<li><a title="contact" href="index.php#contact">Contact us</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -245,24 +175,20 @@
 				$result = $con->query($sql);
 					
 
-			/*	echo '<div style="overflow-x:auto;padding-left:80px; padding-top:80px">'.'<table style="width:1200px;" cellpadding="15">'.'<tbody>'.'<tr style=" border-top: 12px solid transparent;
-				border-bottom: 12px solid transparent;">';
 		
-	$x = 0;
-*/		
 				echo '<div class="grid-container">';
 
 				while( $row = mysqli_fetch_array($result)){
 
-			echo '<section id="blog" class="section">'.
-					'<div>'.
+			echo '<section>'.
+					'<div style="border: 1px solid #3F729B;">'.
 						
 					
 						'<div>'.
-							'<div class="span3">'.
-								'<div class="home-post">'.
+							'<div style="padding:3%" data-aos="zoom-in-down">'.
+								'<div class="home-post" style="width:300px;">'.
 									'<div class="post-image">'.
-										'<img class="max-img" width:100% style=" display: block;
+										'<img class="max-img" style="width:480px; height:280px; object-fit:cover;
 										margin-left: auto;
 										margin-right: auto;" src ="data:image/jpeg;base64,'.base64_encode($row['image']).'"/>'.
 								'</div>'.
@@ -271,15 +197,17 @@
 										'<span class="date">'.$row['date'].'</span>'.
 									'</div>'.
 									'<div class="entry-content">'.
-										'<h5>'.'<strong>'.'<textarea rows="3" style=" border-style: none; resize: none;
-										border-color: Transparent; ">';echo $row['title']; echo '</textarea>'.'</strong>'.'</h5>'.
-										'<p>'.
-										$row['time'].
+										'<h5 style=" text-align:center;">'.'<strong>'.$row['title'].'</strong>'.'</h5>'.										
 										'</p>'.
-										'<p>'.
+										'<p style="	font-size: 18px;">'.
 										$row['venue'].
 										'</p>'.
-										'<button id="myBtn" class="button1">View More.. </button>'.
+										'<p style="	font-size: 23px;
+										font-family: Times, serif;
+										color: #535353; text-align:left;">'.
+										$row['time']
+										.'<div>'
+										.'<p style="font-family:Segoe UI;font-size:15px; word-wrap: break-word;text-align:center;">'.$row['description'].'</p>'.'</div>'.
 									'</div>'.
 								'</div>'.
 							'<div>'.
@@ -287,56 +215,12 @@
 						'</div>'.
 		
 					'</div>'.
-				'</section>'
-
-				.'<div id="myModal" class="modal responsive">'
-				
-					
-					.'<div class="modal-content">'
-						.'<span class="close">&times;</span>'
-						.'<p>'.$row['description'].'</p>'
-					.'</div>'
-				
-				.'</div>';
+				'</section>';
+			
 				}
 
 				echo '</div>';
 					
-			/*	if($x == 3){
-					echo '<tr>'.'<td style="vertical-align: top;text-align: center;">';
-					$x=0;
-			}else{
-				echo '<td style="vertical-align: top;text-align: center;"width=50%>';
-			}
-					$x++;
-
-		
-
-				echo '<div data-aos="flip-left" style="height:570px;width:320px;border-radius: 18px;-webkit-box-shadow: -1px 17px 50px -6px rgba(41,41,41,0.69);
-				-moz-box-shadow: -1px 17px 50px -6px rgba(41,41,41,0.69);
-				box-shadow: -1px 17px 50px -6px rgba(41,41,41,0.69);padding:2%;padding-top:40px;">'.'<img src ="data:image/jpeg;base64,'.base64_encode($row['image']).'"style="width:70%;height:60%;object-fit:cover;border-radius: 10px;>'.'<hr>'.'<br/>'.'<div>'.'<hr style="padding-top:30px;">'.
-				'<p style="font-size:22px; font-family: Roboto Slab;">'.'<b>'.$row['title'].'<b>'.
-				'</p>'.
-				'</br>'.'<div style="font-size:17px;color:#4B515D;font-family:Times;text-align:left;">'.'<strong>'.'Date  :  </strong>'.'<i>'.$row['date'].'</i>'.'</div>'.'</br>'
-				.'<div style="font-size:17px;color:#4B515D;font-family:Times;text-align:left;">'.'<strong>'.'Time  :  </strong>'.'<i>'.$row['time'].'</i>'.'</div>'.'</br>'
-				.'<div style="font-size:17px;color:#4B515D;font-family:Times;text-align:left;">'.'<strong>'.'Venue  :  </strong>'.'<i>'.$row['venue'].'</i>'.'</div>'.'</br>'
-				.'<button id="myBtn" class="button1">View More.. </button>'.'</br>'.'</br>'.'</br>'.'</div>'.'</div>'.'</td>'
-			
-				.'<div id="myModal" class="modal responsive">'
-				
-					
-					.'<div class="modal-content">'
-						.'<span class="close">&times;</span>'
-						.'<p>'.$row['description'].'</p>'
-					.'</div>'
-				
-				.'</div>';
-	
-			}
-			echo '</tr>'.'</tbody>'.'</table>'.'</div>';*/
-
-
-
 				$con->close();
 				?>
 
@@ -354,14 +238,58 @@
 			</div>
 		</section>
 			
-		<section class="content">
-			<div class="inner">
-				<div class="copy">
-				<h1>An inspiring quote</h1>
-					
-				</div>
-			</div>
-		</section>
+
+
+<div data-aos="fade-up"
+     data-aos-duration="3000">
+		<?php
+
+
+$servername  = "localhost";
+$username = "root";
+$password = "";
+$dbname = "karateka";
+
+$con = new mysqli($servername,$username,$password,$dbname);
+
+$query = "select * from demo order by id desc";
+
+$result=$con->query($query);
+
+echo '<div style = "font-family: Times New Roman, Times, serif;
+font-size: 60px;
+color: #333;
+text-align: center;
+padding-top: 130px;">'."Updated Draws".'</div>';
+
+while( $row = mysqli_fetch_array($result)){
+
+
+
+
+
+
+	echo '<div style = "padding-bottom:10px;padding-top:20px">'.'<div style = "padding: 8px 0;
+				background: #f4f4f4;
+				border-color: #EEE #EEE #EEE #645353;
+				border-style: solid;
+				border-width: 1px 1px 1px 3px;
+				padding-left: 4px;
+				margin-top: 0;
+				font-size: 1.385rem;
+				line-height: 1.54rem;
+				margin-right:100px;
+				margin-left:20px;">'.$row['Date']." - ".$row['filename'].'</br>'.'</div>'.'</br>'.'<div style = 	"margin-left:20px; font-size:17px;">'.'<a href = "download.php?id='.$row['id'].'" style = "text-decoration: none;color: 	#808080;">Download </a>'.'</br>'.'</br>'.'</div>'.'</div>'.'<div  style = "padding-left:16px;padding-right:100px;">'.'<hr/>'.'</div>';
+
+
+
+}
+
+
+
+?>
+</div>
+
 		
 		<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
@@ -372,12 +300,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="span6 offset3">
-					<ul class="social-networks">
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-instagram icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-twitter icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-dribbble icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-pinterest icon-2x"></i></a></li>
+				<ul class="social-networks">
+						<li><a href="https://www.facebook.com/Insight-Karate-370294930277198/?ref=br_rs"><i class="icon-circled icon-bgdark icon-facebook icon-2x"></i></a></li>			
 					</ul>
+					
+					<p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  font-size: 15px">
+						&copy; Insight Karate,All rights reserved.
+					</p>
 					<div class="foot">
 					<p class="copyright">
 						&copy; Maxim Theme. All rights reserved.
@@ -444,6 +373,9 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+
 </script>
 </body>
 

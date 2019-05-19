@@ -1,109 +1,38 @@
-
 <?php
 
-$topicValidationError = "";
-$dateValidationError = "";
-$shortValidationError ="";
-$descriptionValidationError = "";
-$photoValidationError = "";
-$message ="*Use jpg type and  upload image below 500kb";
+$servername  = "localhost";
+$username = "root";
+$password = "";
+$dbname = "karateka";
 
-
-
-  $servername  = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "karateka";
-
-  $con = new mysqli($servername,$username,$password,$dbname);
-
+$con = new mysqli($servername,$username,$password,$dbname);
 
 if(isset($_POST['submit'])){
 
+if(getimagesize($_FILES['photo']['tmp_name']) == FALSE){
+    echo "failed";
+}
 
-  if(!empty($_POST['topic'])){
-    $topicValidationError = "";
-  }
-
-  else{
-    $topicValidationError = "topic is required";
-
-  }
-
-
-  if(!empty($_POST['date'])){
-    $dateValidationError = "";
-  }
-
-  else{
-    $dateValidationError = "Date is required";
-
-  }
-
-
-  if(!empty($_POST['short'])){
-    $shortValidationError = "";
-  }
-
-  else{
-    $shortValidationError = "short is required";
-
-  }
-
-
-
-  if(!empty($_POST['description'])){
-    $descriptionValidationError = "";
-  }
-
-  else{
-    $descriptionValidationError = "description is required";
-
-  }
-
-
-
-  if(getimagesize($_FILES['photo']['tmp_name']) == FALSE){
-      echo "failed";
-  }
-
-  else{
-      $image = $_FILES['photo']['tmp_name'];
-      $imagecontent=addslashes(file_get_contents($image));
-  }
-
-
-
-
-
-  if( ($topicValidationError == $dateValidationError)    &&($dateValidationError ==  $descriptionValidationError)&&($descriptionValidationError==="")){
-
-     $topic= $_POST['topic'];
-     $date=$_POST['date'];
-     $short=$_POST['short'];
-     $description=$_POST['description'];
-
-
-    $sql = "INSERT INTO article (topic,date,short,description,image) values('$topic','$date','$short','$description','$imagecontent')";
-    $con->query($sql);
-
-
-
-
-
-  }
-
-
-
-
-
+else{
+    $image = $_FILES['photo']['tmp_name'];
+    $imagecontent=addslashes(file_get_contents($image));
 }
 
 
+$coach= $_POST['coach'];
+$style=$_POST['style'];
+$venue=$_POST['venue'];
+$schedule=$_POST['schedule'];
+$contact=$_POST['contact'];
+$schedule=$_POST['description'];
+
+
+$sql = "INSERT INTO clubs(coach,style,venue,schedule,contact,description,image) values('$coach','$style','$venue','$schedule','$contact','$schedule','$imagecontent')";
+$con->query($sql);
+
+}
 
 ?>
-
-
 
 
 
@@ -186,7 +115,7 @@ if(isset($_POST['submit'])){
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Articles</h1>
+                            <h1 class="page-header">Clubs and Trainee</h1>
                         </div>
                         <!-- /.col-lg-12 -->
                     </div>
@@ -195,7 +124,7 @@ if(isset($_POST['submit'])){
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Information of the article
+                                    Information of the clubs
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
@@ -203,48 +132,44 @@ if(isset($_POST['submit'])){
 
 
                                             
-                                        <?php echo "$message"; ?>
+                                        
                 <form  method = post enctype="multipart/form-data" >
 
                         <div class="form-group">
-                            <label>Topic</label>
-                            <input type = "text" name = "topic" class="form-control" placeholder="Enter topic here">
-                            <span class = "error_all"> <?php echo "$topicValidationError"; ?></span>
-                            <!--<textarea class="form-control" rows="3" cols="150"></textarea>-->
-                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                            <label>coach: </label>
+                            <input type = "text" name = "coach" class="form-control" placeholder="Enter coach name here">
                         </div>
 
                         <div class="form-group">
-                            <label>Date</label>
-                            <input type = "text" name ="date" placeholder="Enter Date" class="form-control">
-                            <span class = "error_all"> <?php echo "$dateValidationError"; ?></span>
-                            <!--<input class="form-control" placeholder="Enter Date">-->
+                            <label>style: </label>
+                            <input  type = "text" name ="style" placeholder="Enter about style" class="form-control">
+                        </div>
+
+                
+                        <div class="form-group">
+                            <label>venue: </label>
+                            <input   type = "text" name ="venue" placeholder="Enter venue here" class="form-control">
                         </div>
 
                         <div class="form-group">
-                        <label>short Description: </label>
-                        <input type = "text" name ="short" class="form-control" placeholder="Enter short Description here">
-                        <span class = "error_all"><?php echo "$shortValidationError"; ?></span>
-                    </div>
-
-
-
-
-                       <div class="form-group">
-                            <label>Description</label>
-                            <textarea  name ="description" placeholder="Enter description here" class="form-control" rows="8"></textarea>
-                            <span class = "error_all"> <?php echo "$descriptionValidationError"; ?></span>
+                            <label>schedule: </label>
+                            <input type = "text" name ="schedule" placeholder="Enter shedule here" class="form-control">
                         </div>
 
-  
-
-
-
+                        <div class="form-group">
+                            <label>contact: </label>
+                            <input   type = "text" name ="contact" placeholder="Enter about style" class="form-control">
+                        </div>
 
                         <div class="form-group">
-                            <label>Images</label>
+                            <label>Motivational quote : </label>
+                            <input   type = "text" name ="description" placeholder="Enter Motivational quote : " class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label>add image: </label>
                             <input type = "file" name ="photo">
-                            <span class = "error_all">* <?php echo "$photoValidationError"; ?></span>
+                        
                         </div>
 
                         <input type = "submit" value = "Publish event" name = "submit">
@@ -266,10 +191,10 @@ if(isset($_POST['submit'])){
                             <?php
 
 
-    $sql = "select id,topic,date,short,description,image from article";
+    $sql = "select id,coach,style,venue,schedule,contact,description,image from clubs";
     $result = $con->query($sql);
 
-    echo '<br/>'.'<h1>Article Delete</h1>'.'<hr>';
+    echo '<br/>'.'<h1>Clubs and trainee Delete</h1>'.'<hr>';
 
 
     while( $row = mysqli_fetch_array($result)){
@@ -278,7 +203,7 @@ if(isset($_POST['submit'])){
 
 
     echo '<div style="text-align: center;margin-top:5px;margin-left:15px;display: inline-block; word-wrap: break-word; border-radius: 25px;
-  border: 2px solid #DCDCDC;width: 200px;height: 150px; border-colorrgb(220,220,220);">'.'<br/>'.'<div style= "padding: 10px; ">'.$row['topic'].'</br>'.$row['date'].'</br>'.'</br>'.'<button  style = "background-color: #555555;border: none;width:90px;height:30px">'.'<a href = "articledel.php?id10='.$row['id'].'" style="color:white">delete </a>'.'</button>'.'</br>'.'</br>'.'</div>'.'</div>';
+  border: 2px solid #DCDCDC;width: 200px;height: 150px; border-colorrgb(220,220,220);">'.'<br/>'.'<div style= "padding: 10px; ">'.$row['coach'].'</br>'.$row['venue'].'</br>'.'</br>'.'<button  style = "background-color: #555555;border: none;width:90px;height:30px">'.'<a href = "clubsdel.php?id10='.$row['id'].'" style="color:white">delete </a>'.'</button>'.'</br>'.'</br>'.'</div>'.'</div>';
 
     }
 

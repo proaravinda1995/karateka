@@ -57,7 +57,7 @@ a {
   --bg-filter-opacity: 0.5;
   background-image: linear-gradient(rgba(0,0,0,var(--bg-filter-opacity)),rgba(0,0,0,var(--bg-filter-opacity))), var(--bg-img);
   height: 380px;
-  width: 260px;
+  width: 290px;
 	font-size: 1.5em;
 	color: white;
   border-radius: 1em;
@@ -66,7 +66,7 @@ a {
   display: flex;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 0 5em -1em black;
+  box-shadow: 0 0 5em -1em rgb(19, 19, 19);
   transition: all, var(--transition-time);
   overflow: hidden;
   border: 10px solid rgb(230, 230, 230);
@@ -368,10 +368,9 @@ padding-top: 160px;
 							<li><a title="team" href="aboutus.php">About us</a></li>
 							<li><a title="services" href="eventmain.php">EVENTS</a></li>
 							<li><a title="works" href="news.php">KARATE NEWS</a></li>
-							<li><a title="blog" href="#blog">ARTICLES</a></li>
-							<li><a title="team" href="#about">clubs</a></li>
+							<li><a title="blog" href="articles.php">ARTICLES</a></li>
+							<li><a title="team" href="clubs.php">clubs</a></li>
 							<li><a title="contact" href="#contact">Contact us</a></li>
-							<li><a href="page.html">Page</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -772,11 +771,11 @@ padding-top: 160px;
 						</div>
 						<div class="span6 read" data-aos="fade-up"
 						data-aos-duration="3000">
-								<h1 class="more1"><a href="#" class="link2">Read More Karate <br>Articles...</a></h1>
+								<h1 class="more1"><a href="articles.php" class="link2">Read More Karate <br>Articles...</a></h1>
 								<br>
 								<br>
 								<br>
-								<p class="articlepara">Force has no place where there is need of skills. Get yourself skilled with best karate articles. </p>
+								<p class="articlepara">"Force has no place where there is need of skills. Get yourself skilled with best karate articles." </p>
 						</div>
 					</div>
 			
@@ -882,10 +881,7 @@ padding-top: 160px;
 	<section id="contact" class="section green">
 		<div class="container">
 			<h4>Get in Touch</h4>
-			<p>
-				Reque facer nostro et ius, cu persius mnesarchum disputando eam, clita prompta et mel vidisse phaedrum pri et. Facilisis posidonium ex his. Mutat iudico vis in, mea aeque tamquam scripserit an, mea eu ignota viderer probatus. Lorem legere consetetur ei
-				eum. Sumo aeque assentior te eam, pri nominati posidonium consttuam
-			</p>
+			
 			<div class="blankdivider30">
 			</div>
 			<div class="row">
@@ -931,11 +927,13 @@ padding-top: 160px;
 			<div class="row">
 				<div class="span6 offset3">
 					<ul class="social-networks">
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-instagram icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-twitter icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-dribbble icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-pinterest icon-2x"></i></a></li>
+						<li><a href="https://www.facebook.com/Insight-Karate-370294930277198/?ref=br_rs"><i class="icon-circled icon-bgdark icon-facebook icon-2x"></i></a></li>			
 					</ul>
+					
+					<p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  font-size: 15px">
+						&copy; Insight Karate,All rights reserved.
+					</p>
+
 					<div class="foot">
 					<p class="copyright">
 						&copy; Maxim Theme. All rights reserved.
