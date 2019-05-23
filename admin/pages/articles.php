@@ -1,3 +1,4 @@
+
 <?php
 
 $topicValidationError = "";
@@ -45,7 +46,7 @@ if(isset($_POST['submit'])){
   }
 
   else{
-    $shortValidationError = "short description is required";
+    $shortValidationError = "short is required";
 
   }
 
@@ -75,7 +76,7 @@ if(isset($_POST['submit'])){
 
 
 
-  if( ($topicValidationError == $dateValidationError)    &&($dateValidationError == $shortValidationError)  &&($shortValidationError == $descriptionValidationError) &&($descriptionValidationError==="")){
+  if( ($topicValidationError == $dateValidationError)    &&($dateValidationError ==  $descriptionValidationError)&&($descriptionValidationError==="")){
 
      $topic= $_POST['topic'];
      $date=$_POST['date'];
@@ -83,7 +84,7 @@ if(isset($_POST['submit'])){
      $description=$_POST['description'];
 
 
-    $sql = "INSERT INTO article(topic,date,short,description,image) values('$topic','$date','$short','$description','$imagecontent')";
+    $sql = "INSERT INTO article (topic,date,short,description,image) values('$topic','$date','$short','$description','$imagecontent')";
     $con->query($sql);
 
 
@@ -101,6 +102,8 @@ if(isset($_POST['submit'])){
 
 
 ?>
+
+
 
 
 
@@ -166,7 +169,12 @@ if(isset($_POST['submit'])){
                             <li>
                                 <a href="articles.php"><i class="fa fa-edit fa-fw"></i> Articles</a>
                             </li>
-                            
+                            <li>
+                                <a href="clubs.php"><i class="fa fa-edit fa-fw"></i> clubs</a>
+                            </li>
+                            <li>
+                                <a href="reg.php"><i class="fa fa-table fa-fw"></i> Draw Chart Update</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /.sidebar-collapse -->
@@ -183,97 +191,108 @@ if(isset($_POST['submit'])){
                         <!-- /.col-lg-12 -->
                     </div>
                     <!-- /.row -->
-<div class="row">
-    <div class="col-lg-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                Information of the post
-            </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Information of the article
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-6">
 
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
 
-                    <?php echo "$message"; ?>
+                                            
+                                        <?php echo "$message"; ?>
                 <form  method = post enctype="multipart/form-data" >
 
-                            <div class="form-group">
+                        <div class="form-group">
+                            <label>Topic</label>
+                            <input type = "text" name = "topic" class="form-control" placeholder="Enter topic here">
+                            <span class = "error_all"> <?php echo "$topicValidationError"; ?></span>
+                            <!--<textarea class="form-control" rows="3" cols="150"></textarea>-->
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
 
-                                <label>Topic</label>
-                                <textarea  name ="topic" placeholder="Enter topic here" class="form-control" rows="3" cols="150"></textarea>
-                                <span class = "error_all"> <?php echo "$topicValidationError"; ?></span>
-                            </div>
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type = "text" name ="date" placeholder="Enter Date" class="form-control">
+                            <span class = "error_all"> <?php echo "$dateValidationError"; ?></span>
+                            <!--<input class="form-control" placeholder="Enter Date">-->
+                        </div>
 
-                            <div class="form-group">
-                                <label>Date</label>
-                                <input type = "text" name ="date" placeholder="Enter Date" class="form-control" descriptionholder="Enter Date">
-                                <span class = "error_all"> <?php echo "$dateValidationError"; ?></span>
-                            </div>
+                        <div class="form-group">
+                        <label>short Description: </label>
+                        <input type = "text" name ="short" class="form-control" placeholder="Enter short Description here">
+                        <span class = "error_all"><?php echo "$shortValidationError"; ?></span>
+                    </div>
 
-                            <div class="form-group">
-                                <label>Short description</label>
-                                <textarea name ="short" placeholder="Enter short description here" class="form-control" rows="3"></textarea>
-                                <span class = "error_all"> <?php echo "$shortValidationError"; ?></span>
-                            </div>
 
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea name ="description" placeholder="Enter description here" class="form-control" rows="8"></textarea>
-                                <span class = "error_all"> <?php echo "$descriptionValidationError"; ?></span>
-                            </div>
 
-                           
+
+                       <div class="form-group">
+                            <label>Description</label>
+                            <textarea  name ="description" placeholder="Enter description here" class="form-control" rows="8"></textarea>
+                            <span class = "error_all"> <?php echo "$descriptionValidationError"; ?></span>
+                        </div>
+
+  
+
+
+
+
                         <div class="form-group">
                             <label>Images</label>
                             <input type = "file" name ="photo">
                             <span class = "error_all">* <?php echo "$photoValidationError"; ?></span>
                         </div>
 
-                            <input type = "submit" value = "Publish event" name = "submit">
-                            <button type="reset" class="btn btn-default">Clear All</button>
-                        </form>
-        </div>
-                            <!-- /.col-lg-6 (nested) -->
+                        <input type = "submit" value = "Publish event" name = "submit">
+                        <button type="reset" class="btn btn-default">Clear All</button>
+
+                    </form>
+
+
+                                        </div>
+                                        <!-- /.col-lg-6 (nested) -->
+                                        </div>
+                                        <!-- /.col-lg-6 (nested) -->
+                                    </div>
+                                    <!-- /.row (nested) -->
+                                </div>
+                                <!-- /.panel-body -->
                             </div>
-                            <!-- /.col-lg-6 (nested) -->
+                            <!-- /.panel -->
+                            <?php
+
+
+    $sql = "select id,topic,date,short,description,image from article";
+    $result = $con->query($sql);
+
+    echo '<br/>'.'<h1>Article Delete</h1>'.'<hr>';
+
+
+    while( $row = mysqli_fetch_array($result)){
+
+     $id= $row['id'];
+
+
+    echo '<div style="text-align: center;margin-top:5px;margin-left:15px;display: inline-block; word-wrap: break-word; border-radius: 25px;
+  border: 2px solid #DCDCDC;width: 200px;height: 150px; border-colorrgb(220,220,220);">'.'<br/>'.'<div style= "padding: 10px; ">'.$row['topic'].'</br>'.$row['date'].'</br>'.'</br>'.'<button  style = "background-color: #555555;border: none;width:90px;height:30px">'.'<a href = "articledel.php?id10='.$row['id'].'" style="color:white">delete </a>'.'</button>'.'</br>'.'</br>'.'</div>'.'</div>';
+
+    }
+
+    $con->close();
+
+     ?>
                         </div>
-                        <!-- /.row (nested) -->
+                        <!-- /.col-lg-12 -->
                     </div>
-                    <!-- /.panel-body -->
+                    <!-- /.row -->
                 </div>
-                <!-- /.panel -->
-                <?php
-
-
-            $sql = "select id,topic,date,short,description,image from article";
-            $result = $con->query($sql);
-
-            echo '<br/>'.'<h1>Article Delete</h1>'.'<hr>';
-
-
-            while( $row = mysqli_fetch_array($result)){
-
-            $id= $row['id'];
-
-
-            echo '<div style="text-align: center;margin-top:5px;margin-left:15px;display: inline-block;  border-radius: 25px;
-            border: 2px solid #DCDCDC;width: 200px;height: 150px; border-colorrgb(220,220,220);">'.'<br/>'.'<div style= "padding: 10px; ">'.$row['topic'].'</br>'.$row['date'].'</br>'.'<button  style = "background-color: #555555;border: none;width:90px;height:30px">'.'<a href = "articledel.php?id10='.$row['id'].'" style="color:white">delete </a>'.'</button>'.'</br>'.'</br>'.'</div>'.'</div>';
-
-            }
-
-            $con->close();
-
-            ?>
-
-
+                <!-- /.container-fluid -->
             </div>
-            <!-- /.col-lg-12 -->
-        </div>
-        <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
-</div>
-<!-- /#page-wrapper -->
+            <!-- /#page-wrapper -->
 
         </div>
         <!-- /#wrapper -->

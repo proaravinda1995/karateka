@@ -381,7 +381,7 @@ header .logo {
 }
 /* --- Header slider --- */
 #header-wrapper.header-slider {
-/*	background: #444 url(../img/bg/bg-1.jpg) no-repeat center center fixed;
+/*	
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -486,7 +486,7 @@ section.spacer {
 }
 
 .spacer.green,.section.green {
-	background: rgba(16, 47, 77, 0.7) ;
+	background: rgba(0, 0, 0, 0.9) ;
 }
 
 .spacer.green,.section.green h4 {
@@ -1715,6 +1715,7 @@ i.icon-white {
 
 .max-img {
  width: 100%;
+
 }
  .max-img {
  margin-right: auto;
@@ -1738,6 +1739,7 @@ i.icon-white {
  width: 150px;
  display: block;
  text-align:center
+ 
 }
  .job-position: {
  margin-bottom: 1.5em;

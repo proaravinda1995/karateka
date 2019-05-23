@@ -19,6 +19,10 @@
     
 	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+
+<!-- Compiled and minified JavaScript -->
+
+
 	<!-- =======================================================
     Theme Name: Maxim
     Theme URL: https://bootstrapmade.com/maxim-free-onepage-bootstrap-theme/
@@ -37,18 +41,18 @@
 			<!-- Responsive navbar -->
 			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
 		</a>
-			<h1 class="brand"><a href="index.html">KARATEKA</a></h1>
+			<h1 class="brand"><a href="index.php">KARATEKA</a></h1>
 			<!-- navigation -->
 			<nav class="pull-right nav-collapse collapse">
 				<ul id="menu-main" class="nav">
-						<li><a title="team" href="#about">HOME</a></li>
-					<li><a title="team" href="#about">About us</a></li>
-					<li><a title="services" href="#services">EVENTS</a></li>
-					<li><a title="works" href="#works">KARATE NEWS</a></li>
-					<li><a title="blog" href="#blog">ARTICLES</a></li>
-					<li><a title="team" href="#about">clubs</a></li>
-					<li><a title="contact" href="#contact">Contact us</a></li>
-					<li><a href="page.html">Page</a></li>
+						<li><a title="team" href="index.php">HOME</a></li>
+					<li><a title="team" href="aboutus.php">About us</a></li>
+					<li><a title="services" href="eventmain.php">EVENTS</a></li>
+					<li><a title="works" href="news.php">KARATE NEWS</a></li>
+					<li><a title="blog" href="articles.php">ARTICLES</a></li>
+					<li><a title="team" href="#">clubs</a></li>
+			
+					
 				</ul>
 			</nav>
 		</div>
@@ -58,16 +62,12 @@
 
 
 
-		<section id="hero1" class="hero" style="background: url(img/newsbg.jpeg);background-size:cover;
+		<section id="hero1" class="hero" style="background: url(img/clubs.jpg);background-size:cover;
 		background-position:center center;
 		background-attachment:fixed;">
 			<div class="inner">
 				<div class="copy">
-				<h1 class="para1" data-aos="fade-up-right">Karate news</h1>
-				<p data-aos="fade-left"
-				data-aos-anchor="#example-anchor"
-				data-aos-offset="500"
-				data-aos-duration="500">Its like im actually there! But sitting at a computer. Wow, the future is intense!</p>
+				<h1 class="para1" data-aos="fade-right">Clubs and Trainee</h1>				
 			
 				<div class="logo">
 						<div class="hover13 column" data-aos="zoom-in"> 
@@ -79,24 +79,68 @@
 				</div>
 		</section>
 
+		
        
+<section>
+        <?php
 
-        
+
+				$servername  = "localhost";
+				$username = "root";
+				$password = "";
+				$dbname = "karateka";
+
+				$con = new mysqli($servername,$username,$password,$dbname);
+
+
+
+				$sql = "select id,coach,style,venue,schedule,contact,description,image from clubs ORDER BY id desc";
+				$result = $con->query($sql);
+
+
+			echo '<div style="overflow-x:auto; padding-top:80px">'.'<table width="100%" align="center">'.'<tbody>'.'<tr>';
+
+	$x = 0;
+
+
+				while( $row = mysqli_fetch_array($result)){
+
+			if($x == 2){
+					echo '<tr>'.'<td align="center" width="50%" style="vertical-align: top;">';
+					$x=0;
+			}else{
+				echo '<td align="center" width="50%" style="vertical-align: top;">';
+			}
+					$x++;
+
+                                                                                                                                                                                                                                 
+
+
+	echo  '<div  data-aos="flip-right" style="border: 1px solid #2E2E2E; width:400px; height 800px;margin:40px;border-radius: 10px; word-wrap: break-word;margin-top:80px;">'.'<img src ="data:image/jpeg;base64,'.base64_encode($row['image']).'"style="width:400px;height:350px;object-fit:cover;border-radius: 10px;>'.'<hr>'.'<br/>'.'<div>'.'<hr style="padding-top:30px;">'.
+      '</br>'.'<div style="font-size:17px;color:#4B515D;font-family:Times;text-align:left; margin-left:40px;margin-top:30px;">'.'<strong>'.'Coach  :  </strong>'.'<i>'.$row['coach'].'</i>'.'</div>'.'</br>'
+      .'<div style="font-size:17px;color:#4B515D;font-family:Times;text-align:left;margin-left:40px">'.'<strong>'.'Style  :  </strong>'.'<i>'.$row['style'].'</i>'.'</div>'.'</br>'
+        	.'<div style="font-size:17px;color:#4B515D;font-family:Times;text-align:left;margin-left:40px">'.'<strong>'.'Venue  :  </strong>'.'<i>'.$row['venue'].'</i>'.'</div>'.'</br>'
+          .'<div style="font-size:17px;color:#4B515D;font-family:Times;text-align:left;margin-left:40px">'.'<strong>'.'Schedule  :  </strong>'.'<i>'.$row['schedule'].'</i>'.'</div>'.'</br>'
+          .'<div style="font-size:17px;color:#4B515D;font-family:Times;text-align:left;margin-left:40px">'.'<strong>'.'Contact  :  </strong>'.'<i>'.$row['contact'].'</i>'.'</div>'.'</br>'
+          .'<div style="font-size:25px;color:#4B515D;font-family:Arial, Helvetica, sans-serif;text-align:center;margin-left:0px">'.'"'.$row['description'].'"'.'</div>'.'</br>'.'</div>'.'</td>';
+
+
+
+			}
+			echo '</tr>'.'</tbody>'.'</table>'.'</div>';
+
+
+
+				$con->close();
+
+
+?>
+
  
 
 	
-	<section class="content">
-			<div class="inner" >
-				<div class="copy">
-					<div class="back"  data-aos="fade-right"
-					data-aos-offset="300"
-					data-aos-easing="ease-in-sine">
-				<h1 class="para2">Lates Karate News...</h1>
-			</div>
-				</div>
-			</div>
-</div>
-        </section>
+		</section>
+
 		
 
 	
@@ -110,12 +154,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="span6 offset3">
-					<ul class="social-networks">
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-instagram icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-twitter icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-dribbble icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-pinterest icon-2x"></i></a></li>
+				<ul class="social-networks">
+						<li><a href="https://www.facebook.com/Insight-Karate-370294930277198/?ref=br_rs"><i class="icon-circled icon-bgdark icon-facebook icon-2x"></i></a></li>			
 					</ul>
+					
+					<p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  font-size: 15px">
+						&copy; Insight Karate,All rights reserved.
+					</p>
 					<div class="foot">
 					<p class="copyright">
 						&copy; Maxim Theme. All rights reserved.
@@ -150,7 +195,7 @@
 	<script src="contactform/contactform.js"></script>
 	<script src="js/design.js"></script>
 	
-
+	
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();

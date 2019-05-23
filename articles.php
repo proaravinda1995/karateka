@@ -25,327 +25,7 @@
     Author: BootstrapMade.com
     Author URL: https://bootstrapmade.com
     ======================================================= -->
-    <style>
-    @import url('https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700');
-
-:root {
-  --color: #3c3163;
-  --transition-time: 0.5s;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: 'Open Sans';
-  background: #fafafa;
-}
-
-a {
-  color: inherit;
-}
-
-.cards-wrapper {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 4rem;
-  padding: 4rem;
-  margin: 0 auto;
-  width: max-content;
-}
-
-.card {
-  font-family: 'Heebo';
-  --bg-filter-opacity: 0.5;
-  background-image: linear-gradient(rgba(0,0,0,var(--bg-filter-opacity)),rgba(0,0,0,var(--bg-filter-opacity))), var(--bg-img);
-  height: 20em;
-  width: 15em;
-  font-size: 1.5em;
-  color: white;
-  border-radius: 1em;
-  padding: 1em;
-  /*margin: 2em;*/
-  display: flex;
-  align-items: flex-end;
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0 0 5em -1em black;
-  transition: all, var(--transition-time);
-  position: relative;
-  overflow: hidden;
-  border: 10px solid #ccc;
-  text-decoration: none;
-}
-
-.card:hover {
-  transform: rotate(0);
-}
-
-.card h1 {
-  margin: 0;
-  font-size: 1.5em;
-  line-height: 1.2em;
-}
-
-.card p {
-  font-size: 0.75em;
-  font-family: 'Open Sans';
-  margin-top: 0.5em;
-  line-height: 2em;
-}
-
-.card .tags {
-  display: flex;
-}
-
-.card .tags .tag {
-  font-size: 0.75em;
-  background: rgba(255,255,255,0.5);
-  border-radius: 0.3rem;
-  padding: 0 0.5em;
-  margin-right: 0.5em;
-  line-height: 1.5em;
-  transition: all, var(--transition-time);
-}
-
-.card:hover .tags .tag {
-  background: var(--color);
-  color: white;
-}
-
-.card .date {
-  position: absolute;
-  float:left;
-  right: 0;
-  font-size: 0.75em;
-  padding: 1em;
-  line-height: 1em;
-  opacity: .8;
-}
-
-.card:before, .card:after {
-  content: '';
-  transform: scale(0);
-  transform-origin: top left;
-  border-radius: 50%;
-  position: absolute;
-  left: -50%;
-  top: -50%;
-  z-index: -5;
-  transition: all, var(--transition-time);
-  transition-timing-function: ease-in-out;
-}
-
-.card:before {
-  background: #ddd;
-  width: 250%;
-  height: 250%;
-}
-
-.card:after {
-  background: white;
-  width: 200%;
-  height: 200%;
-}
-
-.card:hover {
-  color: var(--color);
-}
-
-.card:hover:before, .card:hover:after {
-  transform: scale(1);
-}
-
-.card-grid-space .num {
-  font-size: 3em;
-  margin-bottom: 1.2rem;
-  margin-left: 1rem;
-}
-
-.info {
-  font-size: 1.2em;
-  display: flex;
-  padding: 1em 3em;
-  height: 3em;
-}
-
-.info img {
-  height: 3em;
-  margin-right: 0.5em;
-}
-
-.info h1 {
-  font-size: 1em;
-  font-weight: normal;
-}
-
-/* MEDIA QUERIES */
-@media screen and (max-width: 1285px) {
-  .cards-wrapper {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .cards-wrapper {
-    grid-template-columns: 1fr;
-  }
-  .info {
-    justify-content: center;
-  }
-  .card-grid-space .num {
-    margin-left: 0;
-    text-align: center;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .cards-wrapper {
-    padding: 4rem 2rem;
-  }
-  .card {
-    max-width: calc(100vw - 4rem);
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .info {
-    display: block;
-    text-align: center;
-  }
-  .info h1 {
-    margin: 0;
-  }
-}
-
-/*
-P.S: if you like my content maybe you will become a donator and donate some money? That helps me to create new awesome materials. https://www.paypal.me/melnik909
-*/
-
-/* popup */
-
-.popup{
-  width: 100%;
-  height: 100vh;
-  display: none;
-
-  position: fixed;
-  top: 0;
-  right: 0;
-}
-
-#popup-article:target{
-  display: flex;
-}
-
-.popup:before{
-  content: "";
-  box-sizing: border-box;
-  width: 100%;
-  background-color: #fff;
-
-  position: fixed;
-  left: 0;
-  top: 50%;
-  will-change: height, top;
-  animation: open-animation .6s cubic-bezier(0.83, 0.04, 0, 1.16) .65s both;
-}
-
-.popup:after{
-  content: "";
-  width: 0;
-  height: 2px;
-  background-color: #f0f0f0;
-
-  will-change: width, opacity;
-  animation: line-animation .6s cubic-bezier(0.83, 0.04, 0, 1.16) both;
-
-  position: absolute;
-  top: 50%;
-  left: 0;
-  margin-top: -1px;
-}
-
-@keyframes line-animation{
-
-  0%{
-    width: 0;
-    opacity: 1;
-  }
-
-  99%{
-    width: 100%;
-    opacity: 1;
-  }
-
-  100%{
-    width: 100%;
-    opacity: 0;
-  }  
-}
-
-@keyframes open-animation{
-
-  0%{
-    height: 0;
-    top: 50%;
-  }
-
-  100%{
-    height: 100vh;
-    top: 0;
-  }
-}
-
-.popup__block{
-  height: calc(100vh - 40px);
-  padding: 5% 15%;
-  box-sizing: border-box;
-  position: relative;
-
-  margin: auto;
-  overflow: auto;
-  animation: fade .5s ease-out 1.3s both;
-}
-
-@keyframes fade{
-
-  0%{
-    opacity: 0;
-  }
-
-  100%{
-    opacity: 1;
-  }
-}
-
-.popup__title{
-  font-size: 2.5rem;
-  margin: 0 0 1em;
-}
-
-.popup__close{
-  width: 3.2rem;
-  height: 3.2rem;
-  text-indent: -9999px;
-  
-  position: fixed;
-  top: 20px;
-  right: 20px;
-padding-top: 160px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-  background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTE5IDYuNDFMMTcuNTkgNSAxMiAxMC41OSA2LjQxIDUgNSA2LjQxIDEwLjU5IDEyIDUgMTcuNTkgNi40MSAxOSAxMiAxMy40MSAxNy41OSAxOSAxOSAxNy41OSAxMy40MSAxMnoiLz4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==);
-}
-
-/* /--popup */
-    </style>
+    
 
 </head>
 
@@ -359,18 +39,17 @@ padding-top: 160px;
 			<!-- Responsive navbar -->
 			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
 		</a>
-			<h1 class="brand"><a href="index.html">KARATEKA</a></h1>
+			<h1 class="brand"><a href="index.php">KARATEKA</a></h1>
 			<!-- navigation -->
 			<nav class="pull-right nav-collapse collapse">
 				<ul id="menu-main" class="nav">
-						<li><a title="team" href="#about">HOME</a></li>
-					<li><a title="team" href="#about">About us</a></li>
-					<li><a title="services" href="#services">EVENTS</a></li>
-					<li><a title="works" href="#works">KARATE NEWS</a></li>
-					<li><a title="blog" href="#blog">ARTICLES</a></li>
-					<li><a title="team" href="#about">clubs</a></li>
-					<li><a title="contact" href="#contact">Contact us</a></li>
-					<li><a href="page.html">Page</a></li>
+						<li><a title="team" href="index.php">HOME</a></li>
+					<li><a title="team" href="aboutus.php">About us</a></li>
+					<li><a title="services" href="eventmain.php">EVENTS</a></li>
+					<li><a title="works" href="news.php">KARATE NEWS</a></li>
+					<li><a title="blog" href="#">ARTICLES</a></li>
+					<li><a title="team" href="clubs.php">clubs</a></li>
+					<li><a title="contact" href="index.php#contact">Contact us</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -380,7 +59,7 @@ padding-top: 160px;
 
 
 
-		<section id="hero1" class="hero" style="background: url(img/newsbg.jpeg);background-size:cover;
+		<section id="hero1" class="hero" style="background: url(img/article.jpg);background-size:cover;
 		background-position:center center;
 		background-attachment:fixed;">
 			<div class="inner">
@@ -396,32 +75,42 @@ padding-top: 160px;
 				</div>
 		</section>
 
-       <section>
-            <body>
-    <section class="cards-wrapper">
-        <div class="card-grid-space">
-            <a class="card open-popup" href="#popup-article"
-                style="--bg-img: url(article-images/cardimg1.jpg)">
-                <div>
-                    <h1>4 MAIN STYLES OF KARATE</h1>
-                    <p>Karate dates back hundreds of years, but is still going strong, and for good reason. First
-                        beginning on…</p>
-                    <div class="date">6 Oct 2017</div>
-                    <div class="tags">
-                        <div class="tag">Read More</div>
-                    </div>
-                </div>
-            </a>
-        </div>
-     
-        <div id="popup-article" class="popup">
-            <div class="popup__block">
-                <h1 class="popup__title">THE 4 MAIN STYLES OF KARATE, AND WHO INVENTED THEM!</h1>
-                <p>Karate dates back hundreds of years, but is still going strong, and for good reason. First beginning
+   <section>
+
+   <div>
+          <div style = "padding:50px; background-color: transparent;">
+
+             <div data-aos="fade-up"
+     data-aos-duration="3000" style ="font-size:55px;font-weight:bold; font-family:Helvetica;margin-top:8px;text-align:center;color:#1C2331;">
+             <u>FOUR MAIN STYLES OF KARATE</u><br>
+             </div>
+
+         
+          <div style="padding-top:40px"data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0"><figure><img src ="article-images/cardimg1.jpg" width ="400" height ="250" align = "left" style = "margin-left:10px;margin-right:20px;border:solid black 1px;margin-top:6px;border-radius:12px;"></figure></div>
+        
+
+       
+        
+          <div style ="font-size:22px;font-family:Arial Narrow;color:#4B515D"  data-aos="fade-left"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
+          6 Oct 2017<br>
+          </div>
+
+    
+          <div  style ="font-size:17px;font-weight:500;margin-top:20px;"  data-aos="fade-left"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
+        
+          <h1 >THE 4 MAIN STYLES OF KARATE, AND WHO INVENTED THEM!</h1>
+                <p style="font-size:18px;font-weight:500;">Karate dates back hundreds of years, but is still going strong, and for good reason. First beginning
                     on the trading island of Okinawa, the word Karate was used to describe a weaponless self-defense
                     style that at the time was very important to know – thanks to all the pirates, thieves, and dodgy
                     locals.</p>
-                <img src="article-images/shito2.jpeg" style="width:900px; height:400px;">
+             
                 <h3>1. Wado-ryu</h3>
                 <p>Created by Hienori Otsuka in 1939, this type is relatively new. It is heavily influenced by Gichin
                     Funakoshi Jiu-jitsu and traditional Okinawan karate techniques. The name translates to “way of
@@ -432,7 +121,7 @@ padding-top: 160px;
 
                     The use of Taisabaki (body shifting, or body management) helps minimize an opponent’s attack, and
                     Wado-ryu also uses a shorter stance that what is seen in other styles.<br>
-                    <img src="article-images/wado-ryu.jpg" alt=""></p>
+                    <img src="article-images/wado-ryu.jpg" alt="" ></p>
                 <h3>1. Goju-ryu</h3>
                 <p>Founded in 1930 by Chojun Miyagi, this has now become one of the major schools today. Miyagi decided
                     it was necessary to open a new school and focus on more hard-hitting techniques. As a result, he
@@ -466,10 +155,29 @@ padding-top: 160px;
                     balance and power to the fighter. It is designed to deliver quick, powerful strikes while also being
                     perfectly adapted to strong defense.</p><br>
                     <img src="article-images/shotokan.jpg" alt="">
-                <a href="#" class="popup__close">close</a>
+             
             </div>
+          
         </div>
-   
+          </div>
+
+
+          <div style = "clear:left;">
+
+          </div>
+
+
+          <br>
+          <br>
+          <br>
+
+          </div></div>
+            
+  
+
+        <section>
+
+     
         <?php
 
 $servername  = "localhost";
@@ -485,20 +193,54 @@ $sql = "select id,topic,date,short,description,image from article ORDER BY id de
 $result = $con->query($sql);
   
 while( $row = mysqli_fetch_array($result)){
+  echo    '<hr>'.
+            '<div>'.
+          '<div style = "padding:50px; background-color: transparent;">'.
 
-echo  '<div class="card-grid-space">'.
-'<a class="card open-popup" href="#popup-article"
-    style="--bg-img: url(article-images/cardimg4.jpg)">'.
-    '<div>'
-        .'<h1>'.$row['topic'].'</h1>'
-        .'<p>'.$row['short'].'</p>'
-        .'<div class="date">'.$row['date'].'</div>'
-        .'<div class="tags">'
-            .'<div class="tag">Read More</div>'
-        .'</div>'
-    .'</div>'
-.'</a>'
-.'</div>';
+             //image topic
+             '<div data-aos="fade-up"
+             data-aos-duration="3000" style ="font-size:55px;font-weight:bold; font-family:Helvetica;margin-top:8px;text-align:center;color:#1C2331;">'.
+            '<u>'. $row["topic"].'</u>'.'</br>'.
+             '</div>'.
+
+          //image setting
+          '<div data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="300"
+          data-aos-offset="0" style="padding-top:50px">'.'<figure>'.'<img src ="data:image/jpeg;base64,'.base64_encode($row['image']).'" width ="450" height ="250" align = "left" style = "margin-left:10px;margin-right:20px;border:solid black 1px;margin-top:6px;border-radius:12px;">'.'</figure>'.'</div>'.
+          '<br>'.
+
+       
+          //date
+          '<div style ="font-size:22px;font-family:Arial Narrow;color:#4B515D">'
+          .$row["date"].'</br>'.
+          '</div>'.
+
+          '<div  style ="font-size:16px;font-weight:500;margin-top:15px;";>'.
+        $row["short"].'</br>'.
+          '</div>'.
+
+          //image description
+          '<div  style ="font-size:17px;font-weight:500;margin-top:15px;";>'.
+        $row["description"].'</br>'.
+          '</div>'.
+
+
+          '<div style = "clear:left;">'.
+
+          '</div>'.
+
+
+          '</br>'.
+          '</br>'.
+          '</br>'.
+
+          '</div>'.'</div>';
+
+
+
+
+
 
 
 }
@@ -520,12 +262,13 @@ $con->close();
 		<div class="container">
 			<div class="row">
 				<div class="span6 offset3">
-					<ul class="social-networks">
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-instagram icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-twitter icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-dribbble icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-pinterest icon-2x"></i></a></li>
+        <ul class="social-networks">
+						<li><a href="https://www.facebook.com/Insight-Karate-370294930277198/?ref=br_rs"><i class="icon-circled icon-bgdark icon-facebook icon-2x"></i></a></li>			
 					</ul>
+					
+					<p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  font-size: 15px">
+						&copy; Insight Karate,All rights reserved.
+					</p>
 					<div class="foot">
 					<p class="copyright">
 						&copy; Maxim Theme. All rights reserved.

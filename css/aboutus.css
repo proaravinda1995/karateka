@@ -143,14 +143,14 @@ Modules - reusable parts of our design
   }
   
   .insight{
-    font-size: 60px;
+    font-size: 50px;
     color: #fff;
     text-align: center;
     padding-top: 50px;
   }
 
   .insight2{
-    font-size: 50px;
+    font-size: 40px;
     color: #fff;
     text-align: center;
 
@@ -182,7 +182,12 @@ Modules - reusable parts of our design
   @media (max-width:629px) {
     img#optional {
       padding-top: 180px;
-      
+    }
+  }
+  
+  @media (max-width:450px) {
+    img#optional {
+      padding-top: 320px;
     }
   }
   

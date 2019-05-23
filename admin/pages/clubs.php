@@ -1,61 +1,38 @@
 <?php
 
-
-
 $servername  = "localhost";
-$username = "insightk_root";
-$password = "W)KrQK?zR1Ti";
-$dbname = "insightk_karateka";
+$username = "root";
+$password = "";
+$dbname = "karateka";
 
-  $con = new mysqli($servername,$username,$password,$dbname);
+$con = new mysqli($servername,$username,$password,$dbname);
 
+if(isset($_POST['submit'])){
 
+if(getimagesize($_FILES['photo']['tmp_name']) == FALSE){
+    echo "failed";
+}
 
-if(isset($_POST['submiti'])){
-
-  if(getimagesize($_FILES['imagei']['tmp_name']) == FALSE){
-      echo "failed";
-  }
-
-  else{
-      $imagei = $_FILES['imagei']['tmp_name'];
-      $imagecontenti=addslashes(file_get_contents($imagei));
-  }
+else{
+    $image = $_FILES['photo']['tmp_name'];
+    $imagecontent=addslashes(file_get_contents($image));
+}
 
 
+$coach= $_POST['coach'];
+$style=$_POST['style'];
+$venue=$_POST['venue'];
+$schedule=$_POST['schedule'];
+$contact=$_POST['contact'];
+$schedule=$_POST['description'];
 
-     $topici= $_POST['topici'];
-     $datei=$_POST['datei'];
-     $descriptioni=$_POST['textareai'];
 
-
-
-
-
-    $sql = "INSERT INTO news(topic,date,description,image) values('$topici','$datei','$descriptioni','$imagecontenti')";
-
-    $con->query($sql);
+$sql = "INSERT INTO clubs(coach,style,venue,schedule,contact,description,image) values('$coach','$style','$venue','$schedule','$contact','$schedule','$imagecontent')";
+$con->query($sql);
 
 }
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -68,7 +45,7 @@ if(isset($_POST['submiti'])){
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Karateka Dashboard</title>
+        <topic>Karateka Dashboard</topic>
 
         <!-- Bootstrap Core CSS -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -97,18 +74,18 @@ if(isset($_POST['submiti'])){
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
                     <!--<a class="navbar-brand" href="index.html">--><b>Karateka</b>
-                </div>
-
+                    </div>
 
                 <ul class="nav navbar-nav navbar-left navbar-top-links">
                     <li><a href="../../index.php"><i class="fa fa-home fa-fw"></i> Website</a></li>
                 </ul>
-
+                 
+                
 
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
-
+                            
                             <li>
                                 <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Karate News</a>
                             </li>
@@ -127,7 +104,6 @@ if(isset($_POST['submiti'])){
                             <li>
                                 <a href="reg.php"><i class="fa fa-table fa-fw"></i> Draw Chart Update</a>
                             </li>
-
                         </ul>
                     </div>
                     <!-- /.sidebar-collapse -->
@@ -139,7 +115,7 @@ if(isset($_POST['submiti'])){
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Karate News</h1>
+                            <h1 class="page-header">Clubs and Trainee</h1>
                         </div>
                         <!-- /.col-lg-12 -->
                     </div>
@@ -148,32 +124,60 @@ if(isset($_POST['submiti'])){
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Information of the post
+                                    Information of the clubs
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <form role="form" method="post" enctype="multipart/form-data">
-                                                <div class="form-group">
-                                                    <label>Topic</label>
-                                                    <textarea class="form-control" rows="3" name= "topici"></textarea>
-                                                    <!--<p class="help-block">Example block-level help text here.</p>-->
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Date</label>
-                                                    <input class="form-control" placeholder="Enter Date" name ="datei">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Description</label>
-                                                    <textarea class="form-control" rows="8" name = "textareai"></textarea>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Images</label>
-                                                    <input type="file" name = "imagei">
-                                                </div>
-                                                <button type="submit" class="btn btn-primary btn-md" name = "submiti">Post</button>
-                                                <button type="reset" class="btn btn-default">Clear All</button>
-                                            </form>
+
+
+                                            
+                                        
+                <form  method = post enctype="multipart/form-data" >
+
+                        <div class="form-group">
+                            <label>coach: </label>
+                            <input type = "text" name = "coach" class="form-control" placeholder="Enter coach name here">
+                        </div>
+
+                        <div class="form-group">
+                            <label>style: </label>
+                            <input  type = "text" name ="style" placeholder="Enter about style" class="form-control">
+                        </div>
+
+                
+                        <div class="form-group">
+                            <label>venue: </label>
+                            <input   type = "text" name ="venue" placeholder="Enter venue here" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label>schedule: </label>
+                            <input type = "text" name ="schedule" placeholder="Enter shedule here" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label>contact: </label>
+                            <input   type = "text" name ="contact" placeholder="Enter about style" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Motivational quote : </label>
+                            <input   type = "text" name ="description" placeholder="Enter Motivational quote : " class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label>add image: </label>
+                            <input type = "file" name ="photo">
+                        
+                        </div>
+
+                        <input type = "submit" value = "Publish event" name = "submit">
+                        <button type="reset" class="btn btn-default">Clear All</button>
+
+                    </form>
+
+
                                         </div>
                                         <!-- /.col-lg-6 (nested) -->
                                         </div>
@@ -184,31 +188,31 @@ if(isset($_POST['submiti'])){
                                 <!-- /.panel-body -->
                             </div>
                             <!-- /.panel -->
-                           
-        <?php
-
-$sql = "select id,topic,date,description,image from news";
-$result = $con->query($sql);
-
-echo '<br/>'.'<h1>News Delete</h1>'.'<hr>';
+                            <?php
 
 
-while( $row = mysqli_fetch_array($result)){
+    $sql = "select id,coach,style,venue,schedule,contact,description,image from clubs";
+    $result = $con->query($sql);
 
- $id= $row['id'];
+    echo '<br/>'.'<h1>Clubs and trainee Delete</h1>'.'<hr>';
 
 
-echo '<div style="text-align: center;margin-top:5px;margin-left:15px;display: inline-block;word-wrap: break-word;  border-radius: 25px;
-border: 2px solid #DCDCDC;width: 200px;height: 150px; border-colorrgb(220,220,220);">'.'<br/>'.'<div style= "padding: 10px; ">'.$row['topic'].'</br>'.$row['date'].'</br>'.'<button  style = "background-color: #555555;border: none;width:90px;height:30px">'.'<a href = "deletenewsphp.php?id10='.$row['id'].'" style="color:white">delete </a>'.'</button>'.'</br>'.'</br>'.'</div>'.'</div>';
+    while( $row = mysqli_fetch_array($result)){
 
-}
+     $id= $row['id'];
 
-$con->close();
 
-?>
- </div>
- <!-- /.col-lg-12 -->
- </div>
+    echo '<div style="text-align: center;margin-top:5px;margin-left:15px;display: inline-block; word-wrap: break-word; border-radius: 25px;
+  border: 2px solid #DCDCDC;width: 200px;height: 150px; border-colorrgb(220,220,220);">'.'<br/>'.'<div style= "padding: 10px; ">'.$row['coach'].'</br>'.$row['venue'].'</br>'.'</br>'.'<button  style = "background-color: #555555;border: none;width:90px;height:30px">'.'<a href = "clubsdel.php?id10='.$row['id'].'" style="color:white">delete </a>'.'</button>'.'</br>'.'</br>'.'</div>'.'</div>';
+
+    }
+
+    $con->close();
+
+     ?>
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
                     <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->

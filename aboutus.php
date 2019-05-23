@@ -36,17 +36,17 @@
 					<!-- Responsive navbar -->
 					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
 				</a>
-					<h1 class="brand"><a href="index.html">KARATEKA</a></h1>
+					<h1 class="brand"><a href="index.php">KARATEKA</a></h1>
 					<!-- navigation -->
 					<nav class="pull-right nav-collapse collapse">
 						<ul id="menu-main" class="nav">
 								<li><a title="team" href="index.php">HOME</a></li>
-							<li><a title="team" href="#about">About us</a></li>
-							<li><a title="services" href="#services">EVENTS</a></li>
-							<li><a title="works" href="#works">KARATE NEWS</a></li>
-							<li><a title="blog" href="#blog">ARTICLES</a></li>
-							<li><a title="team" href="#about">clubs</a></li>
-							<li><a title="contact" href="#contact">Contact us</a></li>
+							<li><a title="team" href="#">About us</a></li>
+							<li><a title="services" href="eventmain.php">EVENTS</a></li>
+							<li><a title="works" href="news.php">KARATE NEWS</a></li>
+							<li><a title="blog" href="articles.php">ARTICLES</a></li>
+							<li><a title="team" href="clubs.php">clubs</a></li>
+							<li><a title="contact" href="index.php#contact">Contact us</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -111,7 +111,7 @@
              
               Founder <br>
               Shehan De Silva <br>
-              BBA Business Economis (SP)(UOC)<br>(Shitoriyu Shukokai Black belt 2nd dan )<br>
+              BBA Business Economis (SP)(UOC)<br>(Shitoriyu Shukokai Black belt 2nd dan)<br>
               (Instructor/ coach sri lanka karate do Federation & Sri Lanka school’s Karate Do Association)</p>
 
 
@@ -137,12 +137,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="span6 offset3">
-					<ul class="social-networks">
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-instagram icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-twitter icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-dribbble icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-pinterest icon-2x"></i></a></li>
+				<ul class="social-networks">
+						<li><a href="https://www.facebook.com/Insight-Karate-370294930277198/?ref=br_rs"><i class="icon-circled icon-bgdark icon-facebook icon-2x"></i></a></li>			
 					</ul>
+					
+					<p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  font-size: 15px">
+						&copy; Insight Karate,All rights reserved.
+					</p>
 					<div class="foot">
 					<p class="copyright">
 						&copy; Maxim Theme. All rights reserved.
