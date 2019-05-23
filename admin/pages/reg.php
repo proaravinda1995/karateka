@@ -95,11 +95,11 @@
                 <div class="col-lg-6">
 
 
-                <form  method = post enctype="multipart/form-data" >
+                <form method = "POST" action="upload.php" enctype="multipart/form-data">
 
                         <div class="form-group">
                             <label>Upload File</label>
-                            <input type = "file" name = "f" class="form-control" placeholder="Upload file here">
+                            <input type = "file" name = "file" class="form-control" placeholder="Upload file here">
 
                             <!--<textarea class="form-control" rows="3" cols="150"></textarea>-->
                             <!--<p class="help-block">Example block-level help text here.</p>-->
@@ -107,7 +107,7 @@
 
                         <div class="form-group">
                             <label>Name</label>
-                            <input type = "text" name ="t" placeholder="Name the draw" class="form-control">
+                            <input type = "text" name ="name1" placeholder="Name the draw" class="form-control">
 
                             <!--<input class="form-control" placeholder="Enter Date">-->
                         </div>
@@ -121,7 +121,7 @@
 
 
 
-                        <input type = "submit" value = "Publish Draws" name = "submit">
+                        <input type = "submit" value = "Upload">
                         <button type="reset" class="btn btn-default">Clear All</button>
 
                     </form>
@@ -138,58 +138,56 @@
     </div>
     <!-- /.panel -->
 
-
-
     <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "karateka";
 
 
-    				$servername  = "localhost";
-    				$username = "root";
-    				$password = "";
-    				$dbname = "karateka";
-
-    				$con = new mysqli($servername,$username,$password,$dbname);
-
-    if(isset($_POST['submit'])){
-
-      $filename=$_POST['t'];
-      $date=$_POST['date'];
-
-      $fnm = $_FILES["f"]["name"];
-      $dst = "./images/".$fnm;
-      move_uploaded_file($_FILES["f"]["tmp_name"],$dst);
-
-      $query = "INSERT INTO demo(filename,date,name,path) values('$filename','$date','$fnm','$dst')";
-
-      $con->query($query);
-
-    }
-
-
-
-
-
-
-
-
-
-
+$con = new mysqli($servername,$username,$password,$dbname);
 
     $sql = "select filename,date,id from demo";
     $result = $con->query($sql);
 
     echo '<br/>'.'<h1>Draw Charts Delete</h1>'.'<hr>';
 
+    $files = scandir("uploads");
+for ($a = 2; $a < count($files); $a++)
+{
+    ?>
+   
+    <?php $row = mysqli_fetch_array($result); ?> 
 
-    while( $row = mysqli_fetch_array($result)){
+    <?php $id= $row['id'];  ?> 
+    
+    <?php   echo '<div style="text-align: center;margin-top:5px;margin-left:15px;display: inline-block; word-wrap: break-word;  border-radius: 25px;
+  border: 2px solid #DCDCDC;width: 200px;height: 150px; border-colorrgb(220,220,220);">'.
+  '<br/>'.'<div style= "padding: 10px; ">'.$row['filename'].'</br>'.$row['date'].'</br>'.
+  '<button  style = "background-color: #555555;border: none;width:90px;height:30px">'.
+  '<a href = "deletedrawsphp.php?id10='.$row['id'].'"> 
+  <a href="delete.php?name=uploads/'.$files[$a].'" style="color:white">Delete </a>'.'</a>'.
+  '</button>'.'</br>'.'</br>'.'</div>'.'</div>';
+  ?> 
+
+  
+    <?php
+}
+
+   /* while( $row = mysqli_fetch_array($result)){
 
      $id= $row['id'];
 
 
     echo '<div style="text-align: center;margin-top:5px;margin-left:15px;display: inline-block; word-wrap: break-word;  border-radius: 25px;
-  border: 2px solid #DCDCDC;width: 200px;height: 150px; border-colorrgb(220,220,220);">'.'<br/>'.'<div style= "padding: 10px; ">'.$row['filename'].'</br>'.$row['date'].'</br>'.'<button  style = "background-color: #555555;border: none;width:90px;height:30px">'.'<a href = "deletedrawsphp.php?id10='.$row['id'].'" style="color:white">delete </a>'.'</button>'.'</br>'.'</br>'.'</div>'.'</div>';
+  border: 2px solid #DCDCDC;width: 200px;height: 150px; border-colorrgb(220,220,220);">'.'<br/>'.'<div style= "padding: 10px; ">'.$row['filename'].'</br>'.$row['date'].'</br>'.
+  '<button  style = "background-color: #555555;border: none;width:90px;height:30px">'.
+  '<a href = "deletedrawsphp.php?id10='.$row['id'].'" style="color:white">Delete </a>'.'</button>'.'</br>'.'</br>'.'</div>'.'</div>';
 
-    }
+    }*/
+
+
+
 
     $con->close();
 
@@ -197,22 +195,6 @@
      ?>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- delete event->
-
-<!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
 </div>
@@ -224,10 +206,7 @@
         <!-- /#wrapper -->
 
 
-
-
-
-        <!-- jQuery -->
+      <!-- jQuery -->
         <script src="../js/jquery.min.js"></script>
 
         <!-- Bootstrap Core JavaScript -->

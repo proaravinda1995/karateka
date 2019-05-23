@@ -181,12 +181,12 @@
 				while( $row = mysqli_fetch_array($result)){
 
 			echo '<section>'.
-					'<div style="border: 1px solid #3F729B;">'.
+					'<div>'.
 						
 					
 						'<div>'.
-							'<div style="padding:3%" data-aos="zoom-in-down">'.
-								'<div class="home-post" style="width:300px;">'.
+							'<div style="padding:3%;" data-aos="zoom-in-down">'.
+								'<div class="home-post" style="width:350px;height:700px;border: 1px solid #3F729B;">'.
 									'<div class="post-image">'.
 										'<img class="max-img" style="width:480px; height:280px; object-fit:cover;
 										margin-left: auto;
@@ -262,7 +262,39 @@ color: #333;
 text-align: center;
 padding-top: 130px;">'."Updated Draws".'</div>';
 
-while( $row = mysqli_fetch_array($result)){
+
+
+$files = scandir("admin/pages/uploads");
+for ($a = 2; $a < count($files); $a++)
+{
+		?>
+		<p>
+				<?php $row = mysqli_fetch_array($result); ?> 
+			
+
+			<?php 	echo '<div style = "padding-bottom:10px;padding-top:20px">'.'<div style = "padding: 8px 0;
+				background: #f4f4f4;
+				border-color: #EEE #EEE #EEE #645353;
+				border-style: solid;
+				border-width: 1px 1px 1px 3px;
+				padding-left: 4px;
+				margin-top: 0;
+				font-size: 1.385rem;
+				line-height: 1.54rem;
+				margin-right:100px;
+				margin-left:20px;">'.$row['Date']." - ".$row['filename'].'</br>'.'</div>'.'</br>'.
+				'<div style = "margin-left:20px; font-size:17px;">'.'<a href="admin/pages/uploads/'.$files[$a].'"download="'.$files[$a].'">
+				Download 
+				</a>'.'</br>'.'</br>'.'</div>'.'</div>'.'<div  style = "padding-left:16px;padding-right:100px;">'.'<hr/>'.'</div>';
+			
+				?>
+			
+			
+		</p>
+		<?php
+}
+
+/*while( $row = mysqli_fetch_array($result)){
 
 
 
@@ -285,7 +317,7 @@ while( $row = mysqli_fetch_array($result)){
 
 }
 
-
+*/
 
 ?>
 </div>

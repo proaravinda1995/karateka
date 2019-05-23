@@ -51,7 +51,7 @@
 					<li><a title="works" href="news.php">KARATE NEWS</a></li>
 					<li><a title="blog" href="articles.php">ARTICLES</a></li>
 					<li><a title="team" href="#">clubs</a></li>
-					<li><a title="contact" href="index.php#contact">Contact us</a></li>
+			
 					
 				</ul>
 			</nav>

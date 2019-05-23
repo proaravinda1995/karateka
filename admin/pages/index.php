@@ -2,10 +2,10 @@
 
 
 
-  $servername  = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "karateka";
+$servername  = "localhost";
+$username = "insightk_root";
+$password = "W)KrQK?zR1Ti";
+$dbname = "insightk_karateka";
 
   $con = new mysqli($servername,$username,$password,$dbname);
 

@@ -5,8 +5,9 @@
 	<meta charset="utf-8">
 	<title>Karateka - Insight  karate</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="">
+	<meta name="description" content="Insight karate is simply the one-stop destination and digital integration of all Karate related activity in Sri Lanka !<br> <br>As a great advocate of the martial art, our main goal at insight karate is to promote Karate in Sri Lanka as a passage to building a healthy lifestyle by improving the following qualities and characteristics of students.">
+	<meta name="keywords" content="Insight karate,karate,sri lanka karate,karate clubs,events,karate training,training
+	,champion,strength,articles,News Updates,karate sri lanka">
 	<link href="css/bootstrap-responsive.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="color/default.css" rel="stylesheet">
@@ -71,7 +72,6 @@ a {
   overflow: hidden;
   border: 10px solid rgb(230, 230, 230);
 	text-decoration: none;
-	margin-left: 90px;
 	margin-top: 50px;
 
 }
@@ -205,7 +205,8 @@ a {
     padding: 4rem 2rem;
   }
   .card {
-    max-width: calc(100vw - 4rem);
+		max-width: calc(100vw - 4rem);
+		margin-left: 90px;
   }
 }
 
@@ -216,12 +217,11 @@ a {
   }
   .info h1 {
     margin: 0;
-  }
+	}
+	
 }
 
-/*
-P.S: if you like my content maybe you will become a donator and donate some money? That helps me to create new awesome materials. https://www.paypal.me/melnik909
-*/
+
 
 /* popup */
 
@@ -360,7 +360,7 @@ padding-top: 160px;
 					<!-- Responsive navbar -->
 					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
 				</a>
-					<h1 class="brand"><a href="index.html">KARATEKA</a></h1>
+					<h1 class="brand"><a href="#">KARATEKA</a></h1>
 					<!-- navigation -->
 					<nav class="pull-right nav-collapse collapse">
 						<ul id="menu-main" class="nav">
@@ -370,7 +370,7 @@ padding-top: 160px;
 							<li><a title="works" href="news.php">KARATE NEWS</a></li>
 							<li><a title="blog" href="articles.php">ARTICLES</a></li>
 							<li><a title="team" href="clubs.php">clubs</a></li>
-							<li><a title="contact" href="#contact">Contact us</a></li>
+						
 						</ul>
 					</nav>
 				</div>
@@ -378,9 +378,11 @@ padding-top: 160px;
 		</div>
 	</div>
 	<!-- Header area -->
-	<div>
-			<div id="particles-js"></div> <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> 
+
+	<div id="particles-js"></div> <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> 
 			<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+	<div>
+
 	
 	<div id="header-wrapper" class="header-slider">			
 		<header class="clearfix">	
@@ -399,17 +401,17 @@ padding-top: 160px;
 						<div id="main-flexslider" class="flexslider flyIn">
 							<ul class="slides">
 								<li>
-									<p class="home-slide-content">
+									<p style="font-size:49px" class="home-slide-content">
 										<strong>strength</strong> and passion
 									</p>
 								</li>
 								<li>
-									<p class="home-slide-content">
+									<p style="font-size:49px" class="home-slide-content">
 											Bring out the <strong>champion</strong>
 									</p>
 								</li>
 								<li>
-									<p class="home-slide-content">
+									<p style="font-size:49px" class="home-slide-content">
 											in <strong>you</strong>
 									</p>
 								</li>
@@ -423,22 +425,7 @@ padding-top: 160px;
 		</header>
 	</div>
 
-	<!-- spacer section -->
-	<section class="spacer green">
-		<div class="container">
-			<div class="row">
-				<div class="span6 alignright flyLeft">
-					<blockquote class="large">
-						Karate is action, survival, living; hesitation is paralysis, reaction, mortality.<cite>Soke Behzad Ahmadi</cite>
-					</blockquote>
-				</div>
-				<div class="span6 aligncenter flyRight">
-				<img src="img/karate.png">
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- end spacer section -->
+
 	
 	<section>
 			<div class="back5">
@@ -493,6 +480,26 @@ padding-top: 160px;
 				</div>
 	</section>
 </div>
+
+
+<!-- spacer section -->
+<section class="spacer green">
+		<div class="container">
+			<div class="row">
+				<div class="span6 alignright flyLeft">
+					<blockquote class="large">
+						Karate is action, survival, living; hesitation is paralysis, reaction, mortality.<cite>Soke Behzad Ahmadi</cite>
+					</blockquote>
+				</div>
+				<div class="span6 aligncenter flyRight">
+				<img src="img/karate.png">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end spacer section -->
+
+
 	<!-- section: team -->
 	<section id="about" class="section">
 		<div class="container">
@@ -802,7 +809,7 @@ padding-top: 160px;
                     The use of Taisabaki (body shifting, or body management) helps minimize an opponent’s attack, and
                     Wado-ryu also uses a shorter stance that what is seen in other styles.<br>
                     <img src="article-images/wado-ryu.jpg" alt=""></p>
-                <h3>1. Goju-ryu</h3>
+                <h3>2. Goju-ryu</h3>
                 <p>Founded in 1930 by Chojun Miyagi, this has now become one of the major schools today. Miyagi decided
                     it was necessary to open a new school and focus on more hard-hitting techniques. As a result, he
                     decided to name his new art Goju-ryu Karate, meaning “hard and soft”, as the tradition took
@@ -813,7 +820,7 @@ padding-top: 160px;
                     specific forms he learnt from Chinese martial arts into the Karate that he taught to his Japanese
                     students.<br>
                 </p><img src="article-images/goju-ryu.jpg" alt="">
-                <h3>1. Shito-ryu</h3>
+                <h3>3. Shito-ryu</h3>
                 <p>The name of the style “Shito-ryu” is derived from Kenwa Mabuni Sensei’s two teachers: Ankō Itosu, a
                     famous teacher of Shuri-te karate, and Kanryō Higaonna, a prominent teacher of Naha-te karate. This
                     tradition was introduced in 1928 and utilizes an estimated 50 katas! Technique is the key to this
@@ -822,7 +829,7 @@ padding-top: 160px;
                     we see in things like Shotokan, as well as bringing the ki inside and focusing on breathing power,
                     similar to that of Goju-ryu.</p><br>
                 <img src="article-images/shito-ryu.jpg" alt="">
-                <h3>1. Shotokan</h3>
+                <h3>4. Shotokan</h3>
                 <p>Shotokan is probably one of the main sub-styles of the Karate we see today. Founded by Gichin
                     Funakoshi, it is considered to be the foundation of modern Karate, and Funakoshi is often credited
                     as one of modern-day karate’s founding masters. Born in the birthplace of Karate, Okinawa, in 1868,
@@ -854,9 +861,8 @@ padding-top: 160px;
 <br>
 <br>
 	
-	<!-- spacer section -->
-	
-	<div  style="padding-top:180px;padding-bottom:1S0px">
+	<!-- spacer section -->	
+	<div  style="padding-top:180px;padding-bottom:150px">
 	<section class="spacer bg3">
 		<div class="container">
 			<div class="row">
@@ -874,52 +880,12 @@ padding-top: 160px;
 	</section>
 </div>
 
-
+<div data-aos="fade-right"
+     data-aos-offset="300"     data-aos-easing="ease-in-sine">
+<img src="img/banner.png">
+</div>
 
 <div style="padding-top:180px;">
-	<!-- section: contact -->
-	<section id="contact" class="section green">
-		<div class="container">
-			<h4>Get in Touch</h4>
-			
-			<div class="blankdivider30">
-			</div>
-			<div class="row">
-				<div class="span12">
-					<div class="cform" id="contact-form">
-						<div id="sendmessage">Your message has been sent. Thank you!</div>
-						<div id="errormessage"></div>
-						<form action="" method="post" role="form" class="contactForm">
-							<div class="row">
-								<div class="span6">
-									<div class="field your-name form-group">
-										<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-										<div class="validation"></div>
-									</div>
-									<div class="field your-email form-group">
-										<input type="text" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-										<div class="validation"></div>
-									</div>
-									<div class="field subject form-group">
-										<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-										<div class="validation"></div>
-									</div>
-								</div>
-								<div class="span6">
-									<div class="field message form-group">
-										<textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-										<div class="validation"></div>
-									</div>
-									<input type="submit" value="Send message" class="btn btn-theme pull-left">
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-				<!-- ./span12 -->
-			</div>
-		</div>
-	</section>
 
 </div>
 	<footer>
